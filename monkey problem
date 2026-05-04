@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+class Main {
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            
+            int n = sc.nextInt();
+            int k = sc.nextInt(); 
+            int j = sc.nextInt(); 
+            int m = sc.nextInt(); 
+            int p = sc.nextInt(); 
+
+            
+            if (k <= 0 || j <= 0 || n < 0 || m < 0 || p < 0) {
+                System.out.println("INVALID INPUT");
+                return;
+            }
+
+            int ateBananas = 0;
+            int atePeanuts = 0;
+
+            
+            if (m > 0) {
+                ateBananas = m / k;
+                
+                if (m % k != 0) {
+                    ateBananas++;
+                }
+            }
+
+            
+            if (p > 0) {
+                atePeanuts = p / j;
+                
+                if (p % j != 0) {
+                    atePeanuts++;
+                }
+            }
+
+            int totalAte = ateBananas + atePeanuts;
+            
+            
+            int remaining = n - totalAte;
+            if (remaining < 0) {
+                remaining = 0;
+            }
+
+            System.out.println("Number of Monkeys left on the Tree:" + remaining);
+
+        } catch (Exception e) {
+            System.out.println("INVALID INPUT");
+        } finally {
+            sc.close();
+        }
+    }
+}
